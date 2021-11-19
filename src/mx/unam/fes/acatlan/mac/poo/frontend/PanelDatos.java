@@ -35,6 +35,30 @@ public class PanelDatos extends JPanel{
 	
 	private JLabel lbImagen;
 	
+//	public String cargarPropiedad(String propiedad) {
+//    	Properties propiedades = new Properties();
+//    	InputStream is;
+//    	String valor="";
+//    	
+//		try {
+//			is=ClassLoader.getSystemResourceAsStream("mx/unam/fes/acatlan/mac/poo/backend/configuracion/configuracion.properties");
+//			propiedades.load(is);
+//			is.close();
+//			is = null;
+//			
+//			valor=propiedades.getProperty(propiedad);
+//			
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return 	valor;    	
+//    }
+
 	
 	
 	
@@ -107,11 +131,14 @@ public class PanelDatos extends JPanel{
 		txtGenero.setText(a.getGenero().toString());
 		txtFechaNac.setText(sdf.format(a.getFechaNac()));
 		
+//		ImageIcon imagenOriginal = new ImageIcon(cargarPropiedad("rutaFotos")+a.getFoto());//para imagenes dinamicas que el usuario cargue fuera del jar
 		ImageIcon imagenOriginal = new ImageIcon("fotos/"+a.getFoto());
 		Image imagenAjustada = imagenOriginal.getImage().getScaledInstance(90,
 				100, Image.SCALE_SMOOTH);
 		
 		lbImagen.setText("");
 		lbImagen.setIcon(new ImageIcon(imagenAjustada));
+		
+		
 	}
 }
